@@ -1,0 +1,33 @@
+/***
+* @author Huỳnh Đăng
+* @warn mod lại đấm cmm giờ :)))
+*/
+
+
+const fs = global.nodemodule["fs-extra"];
+module.exports.config = {
+  name: "chuibot",
+  version: "1.0.1",
+  hasPermssion: 0,
+  credits: "Đănggg",
+  description: "chuibot",
+  commandCategory: "Cấm sử dụng bot",
+  usages: "chửi bot clmm",
+  cooldowns: 5,
+};
+module.exports.handleEvent = function({ api, event, args, Threads }) {
+  //var datathread = (await Threads.getData(event.threadID)).threadInfo;
+  //var namethread = datathread.threadName;// mod By DMHoang
+  var { threadID, messageID, reason } = event;
+  var idgr = `${event.threadID}`;
+
+  if ((event.body.toLowerCase() == "bot ngu") || (event.body.toLowerCase() == "bot lon") || (event.body.toLowerCase() == "bot óc chó") || (event.body.toLowerCase() == "bot lồn") || (event.body.toLowerCase() == "bot súc vật")|| (event.body.toLowerCase() == "súc vật bot") || (event.body.toLowerCase() == "dmm bot")|| (event.body.toLowerCase() == "cc nè bot") || (event.body.toLowerCase() == "óc chó bot") || (event.body.toLowerCase() == "mẹ mày bot") || (event.body.toLowerCase() == "mẹ m bot") || (event.body.toLowerCase() == "sủa đi bot") || (event.body.toLowerCase() == "chó bot") || (event.body.toLowerCase() == "bot chó") || (event.body.toLowerCase() == "clmm bot") || (event.body.toLowerCase() == "bot bị ngu") || (event.body.toLowerCase() == "bot như cặc") || (event.body.toLowerCase() == "bot như shit") || (event.body.toLowerCase() == "bot như cứt") || (event.body.toLowerCase() == "cút đi bot") || (event.body.toLowerCase() == "bot cái lồn") || (event.body.toLowerCase() == "kick bot đi") || (event.body.toLowerCase() == "bot óc") || (event.body.toLowerCase() == "bot như lồn") || (event.body.toLowerCase() == "bot lazada") || (event.body.toLowerCase() == "bot ngu vãi") || (event.body.toLowerCase() == "Bot ngu") || (event.body.toLowerCase() == "Bot lon") || (event.body.toLowerCase() == "Bot óc chó") || (event.body.toLowerCase() == "Bot lồn") || (event.body.toLowerCase() == "Bot súc vật")|| (event.body.toLowerCase() == "Súc vật bot") || (event.body.toLowerCase() == "Dmm bot")|| (event.body.toLowerCase() == "Cc nè bot") || (event.body.toLowerCase() == "Óc chó bot") || (event.body.toLowerCase() == "Mẹ mày bot") || (event.body.toLowerCase() == "Mẹ m bot") || (event.body.toLowerCase() == "Sủa đi bot") || (event.body.toLowerCase() == "Chó bot") || (event.body.toLowerCase() == "Bot chó") || (event.body.toLowerCase() == "Clmm bot") || (event.body.toLowerCase() == "Bot bị ngu") || (event.body.toLowerCase() == "Bot như cặc") || (event.body.toLowerCase() == "Bot như shit") || (event.body.toLowerCase() == "Bot như cứt") || (event.body.toLowerCase() == "Cút đi bot") || (event.body.toLowerCase() == "Bot cái lồn") || (event.body.toLowerCase() == "Kick bot đi") || (event.body.toLowerCase() == "Bot óc") || (event.body.toLowerCase() == "Bot như lồn") || (event.body.toLowerCase() == "Bot lazada") || (event.body.toLowerCase() == "Bot shopee") || (event.body.toLowerCase() == "kick bot") || (event.body.toLowerCase() == "Kick bot") || (event.body.toLowerCase() == "Bot gà") || (event.body.toLowerCase() == "bot gà") || (event.body.toLowerCase() == "Bot cặc") || (event.body.toLowerCase() == "bot cặc") || (event.body.toLowerCase() == "Bot dm") || (event.body.toLowerCase() == "bot dm") || (event.body.toLowerCase() == "Dm bot") || (event.body.toLowerCase() == "dm bot")) {
+    data.reason = reason || null;
+    global.data.threadBanned.set(idgr, { reason: data.reason});
+    return api.sendMessage(`❌Nhóm mang ID ${idgr} của bạn đã bị ban, không thể sử dụng bot!\n❌Lý do: Chửi bot\n✔️Vui lòng liên hệ Admin để xem xét lại. `, threadID);
+  };
+
+
+}
+
+module.exports.run = function({ api, event, client, __GLOBAL }) { }
