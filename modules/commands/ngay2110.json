@@ -1,0 +1,24 @@
+const fs = require("fs");
+module.exports.config = {
+name: "ngay2110",
+	version: "1.0.1",
+	hasPermssion: 0,
+	credits: "Đăng mod by DMH",
+	description: "Chửi đi em",
+	commandCategory: "phương tiện",
+	usages: "ko cần prefix chỉ cần chat",
+	cooldowns: 5,
+};
+module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
+	var { threadID, messageID } = event;
+	if (event.body.indexOf("20-10")==0 || (event.body.indexOf("ngày 20-10")==0) || (event.body.indexOf("ngày 20 10")==0) || (event.body.indexOf("Ngày 20-10")==0) || (event.body.indexOf("Ngày 20 10")==0) || (event.body.indexOf("20 10")==0)) {
+		var msg = {
+				body: "Ngày 20-10 các chị em zui zẻ",
+				attachment: fs.createReadStream(__dirname + `/cache/bede2110.gif`)
+			}
+			api.sendMessage(msg, threadID, messageID);
+		}
+	}
+	module.exports.run = function({ api, event, client, __GLOBAL }) {
+
+}
