@@ -1,0 +1,27 @@
+﻿const fs = global.nodemodule["fs-extra"];
+module.exports.config = {
+  name: "iubot",
+  version: "1.0.1",
+  hasPermssion: 0,
+  credits: "DMH",
+  description: "",
+  commandCategory: "Không xài lệnh",
+  usages: "noprefix",
+  cooldowns: 5,
+};
+module.exports.handleEvent = function({ api, event }) {
+  var { threadID, messageID } = event;
+  var tl = ["Thật là hạnh phúc khi được nghe nói lời yêu.\nBot cũng yêu bạn nữa <3","Mình cũng yêu bạn <3","Thôi iu bot làm gì, yêu Admin của bot đyy","Ulatr cuối cùng cũng có ng chịu yêu mình ><","Yêu thì cho 50k đyy","Yêu thì cho Bot xin 50k mua tà tưa :'>","Từ bé đến lớn mới dc bạn yêu mình đấy!","Chắc hongg?","Thoai hong tin đâu","Làm bài tập xong chưa mà yêu ?","I love you too <3","Bye cậu, mình gặp lại sau!","Yêu thì mua tà tưa cho Bot đi","Ulatr nghe như sét đánh ngang tai","Má ơi giật mình má ơi ~","Cưới đi, yêu gì tầm này nữa :'>","Yêu cậu <3","Ulatr ảo ma canada lazada malaysia nobita tuột quần shizuka"];
+  var rand = tl[Math.floor(Math.random() * tl.length)]
+
+  if (event.body.indexOf("iu bot") == 0 || (event.body.indexOf("Iu bot") == 0) || (event.body.indexOf("iu Bot") == 0) || (event.body.indexOf("Iu Bot") == 0) || (event.body.indexOf("Yêu bot") == 0) || (event.body.indexOf("yêu bot") == 0) || (event.body.indexOf("Yeu bot") == 0) || (event.body.indexOf("yeu bot") == 0)) {
+    var msg = {
+      body: rand,
+      //attachment: fs.createReadStream(__dirname + `/cache/byebye.gif`)
+    }//dán link ảnh trong cache vào
+    return api.sendMessage(msg, threadID, messageID);
+  };
+
+}
+
+module.exports.run = function({ api, event, client, __GLOBAL }) { }

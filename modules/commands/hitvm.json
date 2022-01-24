@@ -1,0 +1,25 @@
+const fs = require("fs");
+module.exports.config = {
+name: "hitvm",
+	version: "1.0.1",
+	hasPermssion: 0,
+	credits: "nhuthanh cre",
+	description: "no prefix",
+	commandCategory: "không cần dấu lệnh",
+	usages: "ko cần prefix chỉ cần chat",
+	cooldowns: 5,
+};
+
+module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
+	var { threadID, messageID } = event;
+	if (event.body.indexOf("Chào tvm")==0 || (event.body.indexOf("Hi tvm")==0) || (event.body.indexOf("Lô tvm")==0) || (event.body.indexOf("Tvm")==0) || (event.body.indexOf("tvm")==0) || (event.body.indexOf("hi tvm")==0)) {
+		var msg = {
+				body: "Xin chào bạn tvm của box :* \n Vô gt+show+set bio (Tiểu sử) +set bd giống mng trong box nhá ;)\n Vô box tôn trọng mng và các qtv đặc biệt là tôn trọng bot và ng làm ra bot oce :* \n Tvm ko show +set bố cắt chim m đấy oce\n Nếu thấy thích bot có thể add bot ko thì add admin bot cx đc\n\n Chúc bạn tvm ở box vv và đừng rời box :* đặc biệt là luôn tt vs ttv để box cùng phát triển nha :* :* :*\n Yêu bạn❤️❤️❤️",
+				//attachment: fs.createReadStream(__dirname + `/cache/banh.mp3`)
+			}
+			api.sendMessage(msg, threadID, messageID);
+		}
+	}
+	module.exports.run = function({ api, event, client, __GLOBAL }) {
+
+}
