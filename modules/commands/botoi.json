@@ -1,0 +1,27 @@
+﻿const fs = global.nodemodule["fs-extra"];
+module.exports.config = {
+  name: "botoi",
+  version: "1.0.1",
+  hasPermssion: 0,
+  credits: "DMH",
+  description: "",
+  commandCategory: "Không xài lệnh",
+  usages: "noprefix",
+  cooldowns: 5,
+};
+module.exports.handleEvent = function({ api, event }) {
+  var { threadID, messageID } = event;
+  var tl = ["Đây là tin nhắn tự động!\nHiện tại admin không có mặt ở đây, chỉ có bot thôi.\nTuy nhiên tớ vẫn sẽ nói:\nBot yêu cậu rất nhiều - I love you so much💜","Ơi nghe nèe","Bot đây!","Kêu bot làm gì á >.<","Dạ ơi","Đang bận, kêu giề..","Kêu gì, nhớ lắm hả","Ulatr đang ngủ","Đang ngủ luôn á má","Sống chung vs nhau mà cứ kêu kêu","Cho xin 50k mua tà tưa đyy","Bot hoạt động 24/24\nĐiều hành bởi admin Dương Minh Hoàng","Đang combat kêu cái chết luôn rồi này =.=","Kêu gì cái đồ bị ế !","Uống trà sữa hong :3","Đang học kêu cái giề","Nhớ bot lắm hả!","iu hong mà kêu","Ulatr! bot nè...","Câu cá với bot hong...","Kêu cái gì mà kêu -.-","Muốn nói iu Nhi hay giề😻","Đi ăn với bot hong :3","Nhớ lắm hả kiu quài -.-","Cho hun cái đi😍","Có bồ chưa mà kêu!","Gọi bot hay gọi anh Hoàng","Ơi, bank tiền cho bot đi"];
+  var rand = tl[Math.floor(Math.random() * tl.length)]
+
+  if (event.body.indexOf("Bot ơi") == 0 || (event.body.indexOf("bot ơi") == 0) || (event.body.indexOf("bot oi") == 0) || (event.body.indexOf("Bot oi") == 0)) {
+    var msg = {
+      body: rand,
+      //attachment: fs.createReadStream(__dirname + `/cache/byebye.gif`)
+    }//dán link ảnh trong cache vào
+    return api.sendMessage(msg, threadID, messageID);
+  };
+
+}
+
+module.exports.run = function({ api, event, client, __GLOBAL }) { }

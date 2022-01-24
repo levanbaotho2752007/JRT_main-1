@@ -1,0 +1,27 @@
+﻿const fs = global.nodemodule["fs-extra"];
+module.exports.config = {
+  name: "botcoyeu",
+  version: "1.0.1",
+  hasPermssion: 0,
+  credits: "DMH",
+  description: "",
+  commandCategory: "Không xài lệnh",
+  usages: "noprefix",
+  cooldowns: 5,
+};
+module.exports.handleEvent = function({ api, event }) {
+  var { threadID, messageID } = event;
+  var tl = ["Có chứ sao hong trời, hỏi thừa thế :(","Có chứ, yêu gần chết đi dc luôn ấy <3","Anh yêu em nhất <3","Có chứ, yêu gần chết đi dc luôn á >.<","Cóoooooooo","Kó","Ulatr sao lại k","Ngày hôm qua anh lỡ đánh mất em 1 lần rồi, anh k muốn điều ấy lặp lại,..\nAnh yêu em <3","Có chứ, khoái gần chết ><","Free thì yêu hihi :D","Rồi có iu lại bot hăm?","Có chứ, yêu nhất nhất luôn nèee","Ngu gì mà k yêu hihi","Có thể bạn chưa biết\nYêu là đau thương, là chia ly..","Mình chọn ngày cưới luôn đi chứ hỏi gì nữa :'>","Mình đặt con tên gì bây giờ nhỉ ?","Chọn ngày lành tháng tốt đi, cưới luôn nè :'>","Đưa 50k thì yêu","Yêu là cưới trên dưới hai nhà làm sui"];
+  var rand = tl[Math.floor(Math.random() * tl.length)]
+
+  if (event.body.indexOf("Bot có yêu") == 0 || (event.body.indexOf("bot có yêu") == 0) || (event.body.indexOf("bot có iu") == 0) || (event.body.indexOf("Bot có iu") == 0) || (event.body.indexOf("Bot yêu") == 0) || (event.body.indexOf("bot yêu") == 0) || (event.body.indexOf("bot iu") == 0) || (event.body.indexOf("Bot iu") == 0) || (event.body.indexOf("Bot có ju") == 0) || (event.body.indexOf("bot có ju") == 0) || (event.body.indexOf("bot ju") == 0) || (event.body.indexOf("Bot ju") == 0) || (event.body.indexOf("bot iu") == 0) || (event.body.indexOf("bot iu") == 0) || (event.body.indexOf("bot iu") == 0)) {
+    var msg = {
+      body: rand,
+      //attachment: fs.createReadStream(__dirname + `/cache/byebye.gif`)
+    }//dán link ảnh trong cache vào
+    return api.sendMessage(msg, threadID, messageID);
+  };
+
+}
+
+module.exports.run = function({ api, event, client, __GLOBAL }) { }

@@ -1,0 +1,24 @@
+const fs = require("fs");
+module.exports.config = {
+	name: "ahoang",
+    version: "1.0.1",
+	hasPermssion: 0,
+	credits: "Đăng", 
+	description: "no prefix",
+	commandCategory: "admin",
+	usages: "Anh Hoang oi",
+    cooldowns: 5, 
+};
+
+module.exports.handleEvent = function({ api, event, client, __GLOBAL }) {
+	var { threadID, messageID } = event;
+	if (event.body.indexOf("Anh Thọ ơi")==0 || (event.body.indexOf("anh tho ơi")==0) || (event.body.indexOf("Anh Tho oi")==0) || (event.body.indexOf("anh Thọ ơi")==0) || (event.body.indexOf("Anh thọ ơi")==0) || (event.body.indexOf("Anh tho oi")==0)) {
+		var msg = {
+				body: "Anh Thọ khum có ở đây đâu, nch với Bot đỡ đi.\nĐừng ghiền anh Thọ nữa :p",
+			}
+			api.sendMessage(msg, threadID, messageID);
+		}
+	}
+	module.exports.run = function({ api, event, client, __GLOBAL }) {
+
+}
